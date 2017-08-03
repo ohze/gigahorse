@@ -6,17 +6,18 @@ lazy val root = (project in file(".")).
   aggregate(core, asynchttpclient, shadedAsyncHttpClient, okhttp, akkaHttp).
   dependsOn(core).
   settings(inThisBuild(List(
-      organization := "com.eed3si9n",
+      organization := "com.sandinh",
       scalaVersion := scala212,
       crossScalaVersions := Vector(scala212, scala211, scala210),
-      organizationName := "eed3si9n",
-      organizationHomepage := Some(url("http://eed3si9n.com/")),
-      homepage := Some(url("https://github.com/eed3si9n/gigahorse")),
-      scmInfo := Some(ScmInfo(url("https://github.com/eed3si9n/gigahorse"), "git@github.com:eed3si9n/gigahorse.git")),
+      organizationName := "sandinh",
+      organizationHomepage := Some(url("https://sandinh.com/")),
+      homepage := Some(url("https://github.com/ohze/gigahorse")),
+      scmInfo := Some(ScmInfo(url("https://github.com/ohze/gigahorse"), "git@github.com:ohze/gigahorse.git")),
       developers := List(
-        Developer("eed3si9n", "Eugene Yokota", "@eed3si9n", url("https://github.com/eed3si9n"))
+        Developer("eed3si9n", "Eugene Yokota", "@eed3si9n", url("https://github.com/eed3si9n")),
+        Developer("thanhbv", "Bùi Việt Thành", "@thanhbv", url("https://github.com/ohze"))
       ),
-      version := "0.3.1-SNAPSHOT",
+      version := "0.3.2",
       description := "An HTTP client for Scala with Async Http Client underneath.",
       licenses := Seq("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt")),
       scalacOptions in Compile ++= Seq(
