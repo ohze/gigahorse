@@ -96,7 +96,7 @@ class AkkaHttpClient(config: Config, system: ActorSystem)(implicit fm: Materiali
           val s1 = handler.onStatusReceived(response.status)
           if (s1 == State.Abort) {
             response.entity.discardBytes(fm)
-            p.failure { StatusError(response.status.intValue) }
+            p.failure { StatusError(response.status.intValue, response.status.reason) }
           }
           else p.success(())
           p.future

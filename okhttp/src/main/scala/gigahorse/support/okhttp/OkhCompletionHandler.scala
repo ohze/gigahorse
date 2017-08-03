@@ -20,7 +20,7 @@ package support.okhttp
 import okhttp3.Headers
 
 abstract class OkhCompletionHandler[A] extends CompletionHandler[A] with OkhHandler {
-  def onStatusReceived(status: Int): Unit = ()
+  def onStatusReceived(status: Int, text: String): Unit = ()
   def onHeadersReceived(headers: Headers): Unit = ()
   def onCompleted(response: FullResponse): A
 }

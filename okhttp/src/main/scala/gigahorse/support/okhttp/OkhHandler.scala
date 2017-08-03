@@ -20,6 +20,6 @@ package support.okhttp
 import okhttp3.Headers
 
 trait OkhHandler {
-  def onStatusReceived(code: Int): Unit
+  def onStatusReceived(code: Int, text: String): Unit
   def onHeadersReceived(headers: Headers): Unit
 }

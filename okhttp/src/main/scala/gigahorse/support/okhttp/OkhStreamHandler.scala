@@ -21,7 +21,7 @@ import scala.concurrent.Future
 import okhttp3.Headers
 
 abstract class OkhStreamHandler[A] extends OkhHandler {
-  def onStatusReceived(status: Int): Unit = ()
+  def onStatusReceived(status: Int, text: String): Unit = ()
   def onHeadersReceived(headers: Headers): Unit = ()
   def onStream(response: FullResponse): Future[A]
 }

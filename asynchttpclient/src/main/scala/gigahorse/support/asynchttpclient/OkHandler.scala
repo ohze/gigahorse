@@ -24,7 +24,7 @@ trait OkHandler extends AhcHandler {
   abstract override def onStatusReceived(status: HttpResponseStatus): State = {
     val code = status.getStatusCode
     if (code / 100 == 2) super.onStatusReceived(status)
-    else throw StatusError(code)
+    else throw StatusError(code, status.getStatusText)
   }
 }
 

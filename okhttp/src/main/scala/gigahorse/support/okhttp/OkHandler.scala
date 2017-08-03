@@ -20,10 +20,10 @@ package support.okhttp
 import scala.concurrent.Future
 
 trait OkHandler extends OkhHandler {
-  abstract override def onStatusReceived(code: Int): Unit =
+  abstract override def onStatusReceived(code: Int, text: String): Unit =
     {
-      if (code / 100 == 2) super.onStatusReceived(code)
-      else throw StatusError(code)
+      if (code / 100 == 2) super.onStatusReceived(code, text)
+      else throw StatusError(code, text)
     }
 }
 

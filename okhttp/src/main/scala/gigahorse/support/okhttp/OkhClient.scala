@@ -162,7 +162,7 @@ class OkhClient(config: Config) extends HttpClient {
       client.newCall(r).enqueue(new Callback {
         def onResponse(call: Call, res: XResponse): Unit =
           try {
-            handler.onStatusReceived(res.code)
+            handler.onStatusReceived(res.code, res.message())
             handler.onHeadersReceived(res.headers)
             result.success(handler.onCompleted(new OkhFullResponse(res)))
           } catch {
@@ -183,7 +183,7 @@ class OkhClient(config: Config) extends HttpClient {
       client.newCall(r).enqueue(new Callback {
         def onResponse(call: Call, res: XResponse): Unit =
           try {
-            handler.onStatusReceived(res.code)
+            handler.onStatusReceived(res.code, res.message())
             handler.onHeadersReceived(res.headers)
             result.completeWith(handler.onStream(new OkhFullResponse(res)))
           } catch {
